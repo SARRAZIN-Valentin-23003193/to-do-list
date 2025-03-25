@@ -3,7 +3,7 @@
         {
             "id": 101,
             "title": "1. Fonctionnalités",
-            "description": "",
+            "description": "Regroupement des fonctionnalités",
             "date_creation": "2025-01-01",
             "date_echeance": "2025-03-20",
             "etat": "Reussi",
@@ -12,7 +12,7 @@
         {
             "id": 102,
             "title": "2. Etude de marché",
-            "description": "",
+            "description": "Connaître à qui peut servir mon application",
             "date_creation": "2025-01-01",
             "date_echeance": "2025-04-01",
             "etat": "En attente",
@@ -21,7 +21,7 @@
         {
             "id": 103,
             "title": "3. Wireframes",
-            "description": "",
+            "description": "Faire le visuel de l'application",
             "date_creation": "2025-01-01",
             "date_echeance": "2025-04-01",
             "etat": "Nouveau",

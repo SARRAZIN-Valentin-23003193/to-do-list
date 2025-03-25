@@ -1,11 +1,14 @@
 import '../css/Footer.css';
 
-const Footer = () => {
+const Footer = ({ajout}) => {
+
     return(
         <div className='Footer'>
-            <h1 className="H1">Ajouter une tâche</h1>
-            <h2 className="H2">Tâches</h2>
-            <h2 className="H2">Catégories</h2>
+            <button onClick={ajout} className="button">Ajouter une tâche</button>
+            <div className='page'>
+                <h2 className="H2">Tâches</h2>
+                <h2 className="H2">Catégories</h2>
+            </div>
         </div>
     )
 }

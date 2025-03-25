@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.tache {
+  background-color: white;
+  border: solid black;
+}

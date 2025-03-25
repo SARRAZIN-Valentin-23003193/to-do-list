@@ -1,5 +1,10 @@
 .Footer {
     background-color: #8B8B8B;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .button {
@@ -7,6 +12,7 @@
     margin: 0;
     color: white;
     border: solid black;
+    background-color: #8B8B8B;
 }
 
 .H2 {
@@ -14,4 +20,12 @@
     margin: 0;
     color: white;
     border: solid black;
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
 }

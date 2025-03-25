@@ -41,3 +41,7 @@
   background-color: white;
   border: solid black;
 }
+
+.cache {
+  display: none;
+}

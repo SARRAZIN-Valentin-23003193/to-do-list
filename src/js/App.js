@@ -9,27 +9,26 @@ function App() {
   const [currentTodos, setCurrentTodos] = useState(todos)
   const taches = currentTodos.taches
 
-  const ajoutTaches = () => {
-    const tache = {
-        id:111, title: "Nouvelle tâche"
-    }
-    const newTodos = {
-        ...currentTodos, taches: [
-      ...currentTodos.taches,
-      tache
-      ]
-    }
-  setCurrentTodos(newTodos)
-  viewForm();
-  }
+  function handleChange() {
+    let form = document.getElementById('f')
 
-  function recupDonnee(e) {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let titre = document.getElementById('titre');
+      let description = document.getElementById('description');
+      let date_creation = new Date().toISOString().split("T")[0];
+      let date_echeance = document.getElementById('date_echeance');
+      let etat = document.getElementById('etat');
+      let urgent = document.getElementById('urgent');
 
-    const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
+      const tache = {
+        title: titre, description: description, date_creation: date_creation, date_echeance: date_echeance, etat: etat, urgent: urgent
+      }
+      const newTodos = {
+        ...currentTodos, taches: [...currentTodos.taches, tache]
+      }
+    setCurrentTodos(newTodos)
+    })
   }
 
   function viewForm() {
@@ -44,26 +43,28 @@ function App() {
       <header className="App-header">
         <br/>
         <br/>
+        <div className='taches'>
         {
           taches && taches.map(t => <div className='tache'>{t.title} <br/> {t.description}, {t.date_creation}, {t.date_echeance}, {t.etat}, {t.urgent}</div>)
         }
+        </div>
       </header>
-      <form id="f" method="post" onSubmit={recupDonnee} class='cache'>
+      <form id="f" method="post" class='cache' action={handleChange}>
         <label>
-          Titre de votre tâche: <input name="titre" defaultValue="Votre titre" />
+          Titre de votre tâche: <input id="titre" name="titre" defaultValue="Votre titre" />
         </label>
         <hr />
         <label>
-          Description de votre tâche: <input name="description" defaultValue="Votre description" />
+          Description de votre tâche: <input id="description" name="description" defaultValue="Votre description" />
         </label>
         <hr />
         <label>
-          Indiquez la date d'échéance: <input type="date" name="date_echeance" />
+          Indiquez la date d'échéance: <input id="date_echeance" type="date" name="date_echeance" />
         </label>
         <hr />
         <p>
           Choisissez l'état de votre tâche:
-          <select name='etat'>
+          <select id="etat" name='etat'>
             <option value="Nouveau">Nouveau</option>
             <option value="En cours">En cours</option>
             <option value="Réussi">Réussi</option>
@@ -73,14 +74,14 @@ function App() {
         </p>
         <hr />
         <label>
-          Tâche urgente: <input type="checkbox" name="urgent" />
+          Tâche urgente: <input id="urgent" type="checkbox" name="urgent" />
         </label>
         <hr />
         <button type="reset">Abandonner les modifications</button>
         <button type="submit">Envoyer le formulaire</button>
       </form>
     </div>
-    <Footer affiche={ajoutTaches}/>
+    <Footer affiche={viewForm}/>
     </>
   );
 }
